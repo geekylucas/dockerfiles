@@ -1,5 +1,7 @@
 # 1Password in Docker
 
+To be specific: 1Password in Wine in Docker
+
 ## Prerequisites
 
 You'll almost certainly need to be running a local xhost. Add this to your `~/.xsessionrc`.
