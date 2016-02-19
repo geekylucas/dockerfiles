@@ -21,12 +21,6 @@ docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v "$HOM
 - Exposes local keychain to container (assumes dropbox, change as needed)
 - `--net="host"` is required if you want the chrome extension to be able to connect to the 1Password agent in the container. This is because it only listens on `127.0.0.1`.
 
-### Install
-
-```
-wine /usr/src/1Password-4.6.0.598.exe
-```
-
 ### Launch 1Password Application
 
 ```
