@@ -13,7 +13,7 @@ xhost local:root
 ## To run:
 
 ```
-docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME/Dropbox/1Password.agilekeychain:/root/Dropbox/1Password.agilekeychain --net="host" --name 1password-wine geekylucas/1password-wine bash
+docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v "$HOME/Dropbox/1Password.agilekeychain:/wine/drive_c/users/root/My Documents/1Password.agilekeychain" --net="host"  --name 1password-wine geekylucas/1password-wine bash
 ```
 
 - Exposes X11 to the container
@@ -30,13 +30,13 @@ wine /usr/src/1Password-4.6.0.598.exe
 ### Launch 1Password Application
 
 ```
-wine /root/.wine/drive_c/Program\ Files/1Password\ 4/1Password.exe
+wine /wine/drive_c/1Password/1Password.exe
 ```
 
 ### Launch 1Password Agent
 
 ```
-wine /root/.wine/drive_c/Program\ Files/1Password\ 4/Agile1pAgent.exe
+wine /wine/drive_c/1Password/Agile1pAgent.exe
 ```
 
 ### Chrome extension
