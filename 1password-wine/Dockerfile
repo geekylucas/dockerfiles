@@ -31,7 +31,8 @@ RUN \
   && \
   rm -rf /var/lib/apt/lists/*
 
-ADD https://d13itkw33a7sus.cloudfront.net/dist/1P/win4/1Password-4.6.0.598.exe /usr/src/
+#Persistant latest release URL 
+ADD https://app-updates.agilebits.com/download/OPW4 /usr/src/1Password-4.6.0.598.exe 
 
 # Auto install 1Password using xvfb as null display.
 # WINEDLLOVERRIDES=mscoree=d to disable wine's mono install prompt.
