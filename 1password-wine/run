@@ -1,0 +1,33 @@
+#!/bin/bash
+set -e
+set -o pipefail
+set -u
+
+CONTAINER="1p"
+
+main() {
+if docker inspect "$CONTAINER" &>/dev/null; then
+  docker_start
+else
+  docker_run
+fi
+}
+
+docker_run() {
+docker run \
+  --interactive \
+  --tty \
+  --volume "$HOME/Dropbox/1Password:/wine/drive_c/users/root/My Documents/1Password" \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  --env DISPLAY=unix$DISPLAY \
+  --net host \
+  --name "$CONTAINER" \
+  geekylucas/1password-wine \
+  "$@"
+}
+
+docker_start() {
+  docker start "$CONTAINER"
+}
+
+main
