@@ -31,13 +31,13 @@ RUN \
   && \
   rm -rf /var/lib/apt/lists/*
 
-ADD https://d13itkw33a7sus.cloudfront.net/dist/1P/win4/1Password-4.6.0.598.exe /usr/src/
+ADD https://d13itkw33a7sus.cloudfront.net/dist/1P/win4/1Password-4.6.1.617.exe /usr/src/
 
 # Auto install 1Password using xvfb as null display.
 # WINEDLLOVERRIDES=mscoree=d to disable wine's mono install prompt.
 # wineserver -k to flush registry files to disk after install.
 RUN xvfb-run -a bash -c "\
-  WINEDLLOVERRIDES=mscoree=d wine /usr/src/1Password-4.6.0.598.exe /VERYSILENT /DIR=c:\1Password && \
+  WINEDLLOVERRIDES=mscoree=d wine /usr/src/1Password-4.6.1.617.exe /VERYSILENT /DIR=c:\1Password && \
   grep -A4 Installation /wine/drive_c/1Password/1Password.InnoSetup.log.txt && \
   /usr/bin/wineserver -k"
 
