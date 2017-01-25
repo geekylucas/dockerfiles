@@ -39,7 +39,7 @@ ADD https://d13itkw33a7sus.cloudfront.net/dist/1P/win4/1Password-4.6.0.598.exe /
 RUN xvfb-run -a bash -c "\
   WINEDLLOVERRIDES=mscoree=d wine /usr/src/1Password-4.6.0.598.exe /VERYSILENT /DIR=c:\1Password && \
   grep -A4 Installation /wine/drive_c/1Password/1Password.InnoSetup.log.txt && \
-  /usr/lib/i386-linux-gnu/wine/bin/wineserver -k"
+  /usr/bin/wineserver -k"
 
 RUN echo >/root/.bash_history "wine /wine/drive_c/1Password/Agile1pAgent.exe" && \
   echo >>/root/.bash_history "wine /wine/drive_c/1Password/1Password.exe"
